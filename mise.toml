@@ -1,0 +1,7 @@
+min_version = "2026.10.10"
+
+[tools]
+bun = "1.4.2"
+gh = "latest"
+node = "24"
+pnpm = "12.10.0"

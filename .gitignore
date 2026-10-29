@@ -1,0 +1,76 @@
+# OS-specific files
+
+# macOS
+.AppleDouble
+.DS_Store
+.LSOverride
+
+# Windows
+Desktop.ini
+ehthumbs.db
+Thumbs.db
+
+# Linux
+*~
+.directory
+
+# IDE and editor files
+
+# JetBrains IDEs
+*.iml
+*.iws
+.idea/
+
+# Visual Studio Code
+*.code-workspace
+.vscode/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Zed
+.zed/
+
+# Vim
+*.swo
+*.swp
+
+# Neovim
+.exrc
+.nvim.lua
+.nvimrc
+
+# Build artifacts
+
+/build/
+/dist/
+/out/
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+
+# Node.js (pnpm)
+.eslintcache
+.npm/
+node_modules/
+
+# Environment and secrets
+
+.env
+.env.*.local
+.env.local
+
+# Secrets and credentials
+*.key
+*.pem
+credentials.json
+secrets.yaml
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
