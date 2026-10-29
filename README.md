@@ -35,7 +35,7 @@ A starting point for repositories that check every commit message and release au
    - Webhook: off.
 2. Generate a private key and install the app on this repository only.
 3. Add repository secrets (Settings → Secrets and variables → Actions):
-   - `RELEASE_APP_ID`: the app ID
+   - `RELEASE_APP_CLIENT_ID`: the app's Client ID (on the app's General page)
    - `RELEASE_APP_PRIVATE_KEY`: the private key file contents
 
 ### Repository rules
