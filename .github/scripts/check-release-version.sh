@@ -14,6 +14,7 @@ readonly ERROR_INVALID_ARGUMENT=2
 readonly ERROR_DEPENDENCY_MISSING=3
 readonly ERROR_NO_RELEASE=4
 readonly ERROR_CALCULATION_FAILED=5
+readonly ERROR_BRANCH_NOT_FOUND=6
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly SCRIPT_DIR
@@ -64,6 +65,9 @@ main() {
   git clone -q "${repo}" "${work}/repo"
   cd "${work}/repo"
   git remote set-url origin "${remote_url}"
+  if ! git ls-remote --exit-code --heads origin "${branch}" >/dev/null; then
+    handle_error "${ERROR_BRANCH_NOT_FOUND}" "원격에 ${branch} 브랜치가 없음, 먼저 푸시"
+  fi
   git fetch -q --tags origin main "${branch}"
   git checkout -q -B main origin/main
   git -c user.name=check -c user.email=check@localhost -c commit.gpgsign=false \
