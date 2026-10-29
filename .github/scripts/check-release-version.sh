@@ -72,7 +72,9 @@ main() {
 
   log_info "main에 ${branch}를 병합한 상태로 다음 버전 계산"
   local output
-  if ! output="$("${bin}" --dry-run --no-ci --branches main \
+  # CI 환경 변수를 빼야 semantic-release가 PR 참조(refs/pull/N/merge) 대신 지금 Git 브랜치(main)를 씀
+  if ! output="$(env -u CI -u GITHUB_ACTIONS -u GITHUB_EVENT_NAME -u GITHUB_REF -u GITHUB_HEAD_REF -u GITHUB_BASE_REF \
+    "${bin}" --dry-run --no-ci --branches main \
     --plugins @semantic-release/commit-analyzer,@semantic-release/release-notes-generator 2>&1)"; then
     echo "${output}" >&2
     handle_error "${ERROR_CALCULATION_FAILED}" "semantic-release dry-run 실패"
