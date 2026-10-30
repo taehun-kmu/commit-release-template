@@ -15,5 +15,5 @@
     "prepare": "husky",
     "release:next": "semantic-release --dry-run --no-ci --branches develop --plugins @semantic-release/commit-analyzer,@semantic-release/release-notes-generator"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
